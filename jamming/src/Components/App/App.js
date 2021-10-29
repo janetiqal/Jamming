@@ -10,6 +10,18 @@ import './App.css';
 class App extends React.Component {
   constructor(props) {
     super(props)
+    //hard coding data here for now
+    this.state={
+      SearchResults :[
+      {name: 'Baltimore', album:'single', artist:"Nina Simone", id:1},
+      {name: 'Hurricane', album:'Donda', artist:"Kanye West", id:2},
+      {name: 'A Case Of You', album:'Blue', artist:"Joni Mitchell", id:3}
+    ],
+    playlistName: 'HardCoded Playlist Name',
+    playlistTracks: [{name: 'Baltimore', album:'single', artist:"Nina Simone", id:1},
+    {name: 'Hurricane', album:'Donda', artist:"Kanye West", id:2},
+    {name: 'A Case Of You', album:'Blue', artist:"Joni Mitchell", id:3}]
+    }
   }
   render(){
   return (
@@ -18,8 +30,8 @@ class App extends React.Component {
       <div className="App">
         <SearchBar />
         <div className="App-playlist">
-        <SearchResults />
-        <Playlist />
+        <SearchResults searchResults={this.state.SearchResults}/>
+        <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
         </div>
       </div>
     </div>

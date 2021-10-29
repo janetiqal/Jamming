@@ -2,8 +2,8 @@ import React from "react";
 import './Track.css'
 
 class Track extends React.Component {
-    //user sees the + sign
-    renderAction(){
+    //user sees the + or - sign
+    renderAction() {
         if(this.props.isRemoval){
            return <button className="Track-action">-</button>
         }else{
@@ -15,10 +15,10 @@ class Track extends React.Component {
             <div className="Track">
                 <div className="Track-information">
                     <h3>
-                    {/* <!-- track name will go here --> */}
+                        {this.props.track.name}
                     </h3>
                     <p>
-                    {/* <!-- track artist will go here--> | <!-- track album will go here --> */}
+                    {this.props.track.artist}, {this.props.track.album}
                     </p>
                 </div>
       {/* dynamic btn based on the value of isRemoval prop*/}

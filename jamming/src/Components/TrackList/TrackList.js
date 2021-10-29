@@ -1,16 +1,14 @@
 import React from "react";
 import './TrackList.css'
 
-
+import Track  from "../Track/Track";
+//map over the tracks here, then pass it to tracks.js to display the information 
 class TrackList extends React.Component {
     render() {
         return (
             <div className="TrackList">
-            <ul>
-                    <li>Nina Simone Baltimore</li>
-                    <li>Nina Simone Feeling Good</li>
-                    <li>Nina Simone I wish I knew</li>
-            </ul>
+            {this.props.tracks.map(track => <Track track={track}
+                     key={track.id} />)}
             </div>
         )
     }
