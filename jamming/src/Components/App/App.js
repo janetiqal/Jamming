@@ -45,9 +45,9 @@ class App extends React.Component {
   }
 
   savePlaylist() {
- 
+    //updating this to only allow a playlist w songs to be saved to Spotify
+    if(this.state.playlistTracks.length){
     const trackURIs = this.state.playlistTracks.map(track => track.uri)
-  
     //after this method has been called and fulfilled we then set the state back to being generic so we can then create another playlist and add tracks to it 
     Spotify.savePlaylist(this.state.playlistName, trackURIs);
 
@@ -56,7 +56,10 @@ class App extends React.Component {
         playlistTracks: [],
         searchResults:[]
       })
-    
+    }else{
+      document.querySelector('.Playlist-save').innerHTML="Add tracks to your playlist before saving."
+      document.querySelector('.Playlist-save').style.backgroundColor="red";
+    }
   }
   search(term) {
     //update search results from the spotify searchs' promise
