@@ -6,12 +6,14 @@ class Track extends React.Component {
         super(props);
 
         this.addTrack=this.addTrack.bind(this)
+        this.removeTrack=this.removeTrack.bind(this)
+
     }
 
     //user sees the + or - sign 
     renderAction() {
         if(this.props.isRemoval){
-           return <button className="Track-action">-</button>
+           return <button className="Track-action" onClick={this.removeTrack}>-</button>
         }else{
            return <button className="Track-action" onClick={this.addTrack}>+</button>
         }
@@ -19,6 +21,9 @@ class Track extends React.Component {
     //adds the track to the playlist
     addTrack(){
         this.props.onAdd(this.props.track)
+    }
+    removeTrack(){
+        this.props.onRemove(this.props.track)
     }
     render() {
         return (
